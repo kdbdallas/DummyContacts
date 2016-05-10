@@ -10,8 +10,9 @@
 
 @interface ViewController : UIViewController <UIAlertViewDelegate>
 {
-    
     IBOutlet UILabel *lblStatus;
+	
+	NSData *myData;
 }
 
 - (IBAction)btnAddContactsTapped:(id)sender;

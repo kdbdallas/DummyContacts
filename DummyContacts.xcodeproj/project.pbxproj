@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E5EC10A1CE1A61E009F0DA2 /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1021CE1A61E009F0DA2 /* 11.jpg */; };
+		8E5EC10B1CE1A61E009F0DA2 /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1031CE1A61E009F0DA2 /* 12.jpg */; };
+		8E5EC10C1CE1A61E009F0DA2 /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1041CE1A61E009F0DA2 /* 13.jpg */; };
+		8E5EC10D1CE1A61E009F0DA2 /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1051CE1A61E009F0DA2 /* 14.jpg */; };
+		8E5EC10E1CE1A61E009F0DA2 /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1061CE1A61E009F0DA2 /* 15.jpg */; };
+		8E5EC10F1CE1A61E009F0DA2 /* 16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1071CE1A61E009F0DA2 /* 16.jpg */; };
+		8E5EC1101CE1A61E009F0DA2 /* 17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1081CE1A61E009F0DA2 /* 17.jpg */; };
+		8E5EC1111CE1A61E009F0DA2 /* 18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E5EC1091CE1A61E009F0DA2 /* 18.jpg */; };
+		8E87A24C1CDC572800E8B148 /* contacts.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8E87A24B1CDC572800E8B148 /* contacts.vcf */; };
+		8E87A24E1CDC5D9800E8B148 /* contactsSmall.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8E87A24D1CDC5D9800E8B148 /* contactsSmall.vcf */; };
+		8E87A2501CDC5FE700E8B148 /* contactsTiny.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 8E87A24F1CDC5FE700E8B148 /* contactsTiny.vcf */; };
 		9FF333AF16AFA9CA00C46EA0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF333AE16AFA9CA00C46EA0 /* UIKit.framework */; };
 		9FF333B116AFA9CA00C46EA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF333B016AFA9CA00C46EA0 /* Foundation.framework */; };
 		9FF333B316AFA9CA00C46EA0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF333B216AFA9CA00C46EA0 /* CoreGraphics.framework */; };
@@ -34,6 +45,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E5EC1021CE1A61E009F0DA2 /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
+		8E5EC1031CE1A61E009F0DA2 /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
+		8E5EC1041CE1A61E009F0DA2 /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
+		8E5EC1051CE1A61E009F0DA2 /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
+		8E5EC1061CE1A61E009F0DA2 /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
+		8E5EC1071CE1A61E009F0DA2 /* 16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.jpg; sourceTree = "<group>"; };
+		8E5EC1081CE1A61E009F0DA2 /* 17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17.jpg; sourceTree = "<group>"; };
+		8E5EC1091CE1A61E009F0DA2 /* 18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 18.jpg; sourceTree = "<group>"; };
+		8E87A24B1CDC572800E8B148 /* contacts.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contacts.vcf; sourceTree = "<group>"; };
+		8E87A24D1CDC5D9800E8B148 /* contactsSmall.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contactsSmall.vcf; sourceTree = "<group>"; };
+		8E87A24F1CDC5FE700E8B148 /* contactsTiny.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contactsTiny.vcf; sourceTree = "<group>"; };
 		9FF333AA16AFA9CA00C46EA0 /* DummyContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF333AE16AFA9CA00C46EA0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9FF333B016AFA9CA00C46EA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +137,9 @@
 			children = (
 				9FF333D716AFAA2300C46EA0 /* PersonPhotos */,
 				9FF333D116AFA9D900C46EA0 /* DummyVCard.vcf */,
+				8E87A24B1CDC572800E8B148 /* contacts.vcf */,
+				8E87A24D1CDC5D9800E8B148 /* contactsSmall.vcf */,
+				8E87A24F1CDC5FE700E8B148 /* contactsTiny.vcf */,
 				9FF333BD16AFA9CA00C46EA0 /* AppDelegate.h */,
 				9FF333BE16AFA9CA00C46EA0 /* AppDelegate.m */,
 				9FF333C616AFA9CA00C46EA0 /* ViewController.h */,
@@ -142,6 +167,14 @@
 		9FF333D716AFAA2300C46EA0 /* PersonPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				8E5EC1021CE1A61E009F0DA2 /* 11.jpg */,
+				8E5EC1031CE1A61E009F0DA2 /* 12.jpg */,
+				8E5EC1041CE1A61E009F0DA2 /* 13.jpg */,
+				8E5EC1051CE1A61E009F0DA2 /* 14.jpg */,
+				8E5EC1061CE1A61E009F0DA2 /* 15.jpg */,
+				8E5EC1071CE1A61E009F0DA2 /* 16.jpg */,
+				8E5EC1081CE1A61E009F0DA2 /* 17.jpg */,
+				8E5EC1091CE1A61E009F0DA2 /* 18.jpg */,
 				9FF333D816AFAA2300C46EA0 /* 1.jpg */,
 				9FF333D916AFAA2300C46EA0 /* 10.jpg */,
 				9FF333DA16AFAA2300C46EA0 /* 2.jpg */,
@@ -182,7 +215,7 @@
 		9FF333A116AFA9CA00C46EA0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = MFMA;
 			};
 			buildConfigurationList = 9FF333A416AFA9CA00C46EA0 /* Build configuration list for PBXProject "DummyContacts" */;
@@ -209,16 +242,27 @@
 			files = (
 				9FF333B916AFA9CA00C46EA0 /* InfoPlist.strings in Resources */,
 				9FF333C116AFA9CA00C46EA0 /* Default.png in Resources */,
+				8E5EC10D1CE1A61E009F0DA2 /* 14.jpg in Resources */,
+				8E5EC10B1CE1A61E009F0DA2 /* 12.jpg in Resources */,
+				8E87A24E1CDC5D9800E8B148 /* contactsSmall.vcf in Resources */,
+				8E5EC1111CE1A61E009F0DA2 /* 18.jpg in Resources */,
 				9FF333C316AFA9CA00C46EA0 /* Default@2x.png in Resources */,
+				8E5EC10C1CE1A61E009F0DA2 /* 13.jpg in Resources */,
 				9FF333C516AFA9CA00C46EA0 /* Default-568h@2x.png in Resources */,
 				9FF333CB16AFA9CA00C46EA0 /* ViewController.xib in Resources */,
 				9FF333D216AFA9D900C46EA0 /* DummyVCard.vcf in Resources */,
+				8E87A2501CDC5FE700E8B148 /* contactsTiny.vcf in Resources */,
+				8E5EC10E1CE1A61E009F0DA2 /* 15.jpg in Resources */,
+				8E87A24C1CDC572800E8B148 /* contacts.vcf in Resources */,
+				8E5EC1101CE1A61E009F0DA2 /* 17.jpg in Resources */,
 				9FF333E216AFAA2300C46EA0 /* 1.jpg in Resources */,
 				9FF333E316AFAA2300C46EA0 /* 10.jpg in Resources */,
+				8E5EC10F1CE1A61E009F0DA2 /* 16.jpg in Resources */,
 				9FF333E416AFAA2300C46EA0 /* 2.jpg in Resources */,
 				9FF333E516AFAA2300C46EA0 /* 3.jpg in Resources */,
 				9FF333E616AFAA2300C46EA0 /* 4.jpg in Resources */,
 				9FF333E716AFAA2300C46EA0 /* 5.jpg in Resources */,
+				8E5EC10A1CE1A61E009F0DA2 /* 11.jpg in Resources */,
 				9FF333E816AFAA2300C46EA0 /* 6.jpg in Resources */,
 				9FF333E916AFAA2300C46EA0 /* 7.jpg in Resources */,
 				9FF333EA16AFAA2300C46EA0 /* 8.jpg in Resources */,
@@ -271,6 +315,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -282,7 +327,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -301,7 +347,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -314,7 +360,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DummyContacts/DummyContacts-Prefix.pch";
 				INFOPLIST_FILE = "DummyContacts/DummyContacts-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -326,7 +373,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DummyContacts/DummyContacts-Prefix.pch";
 				INFOPLIST_FILE = "DummyContacts/DummyContacts-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

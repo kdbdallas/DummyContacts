@@ -10,6 +10,11 @@
 #import <AddressBook/AddressBook.h>
 
 @interface ViewController ()
+@property (retain, nonatomic) IBOutlet UISlider *contactSlider;
+@property (retain, nonatomic) IBOutlet UILabel *contactCounterTextField;
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic) NSInteger numberOfContacts;
+
 
 @end
 
@@ -18,9 +23,52 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+	
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self.spinner startAnimating];
+		
+		ABAddressBookRef addressBook = ABAddressBookCreate();
+		__block BOOL accessGranted = NO;
+		
+		if (&ABAddressBookRequestAccessWithCompletion != NULL) { // we're on iOS 6
+			dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+			
+			ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+				accessGranted = granted;
+				dispatch_semaphore_signal(sema);
+			});
+			
+			dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+			dispatch_release(sema);
+		}
+		else { // we're on iOS 5 or older
+			accessGranted = YES;
+		}
+		
+		if(accessGranted)
+		{
+			NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"vcf"];
+			myData = [[NSData dataWithContentsOfFile:filePath] retain];
+			
+			CFDataRef vCardData = (CFDataRef)myData;
+			
+			ABAddressBookRef book = ABAddressBookCreate();
+			ABRecordRef defaultSource = ABAddressBookCopyDefaultSource(book);
+			CFArrayRef vCardPeople = ABPersonCreatePeopleInSourceWithVCardRepresentation(defaultSource, vCardData);
+			
+			self.contactSlider.maximumValue = CFArrayGetCount(vCardPeople);
+			
+			[self.spinner stopAnimating];
+		}
+	});
 }
 
+- (IBAction)contactSliderValueChanged:(id)sender {
+	self.numberOfContacts = ceilf(self.contactSlider.value);
+	
+	self.contactCounterTextField.text = [NSString stringWithFormat:@"%ld", self.numberOfContacts];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -53,49 +101,33 @@
 
 -(void)addContacts
 {
-    ABAddressBookRef addressBook = ABAddressBookCreate();
-    __block BOOL accessGranted = NO;
+    NSInteger cardCounter = 0;
+
+	CFDataRef vCardData = (CFDataRef)myData;
+	
+	ABAddressBookRef book = ABAddressBookCreate();
+	ABRecordRef defaultSource = ABAddressBookCopyDefaultSource(book);
+	CFArrayRef vCardPeople = ABPersonCreatePeopleInSourceWithVCardRepresentation(defaultSource, vCardData);
+	
+	//CFArrayGetCount(vCardPeople)
+	
+	for (CFIndex index = 0; index < self.numberOfContacts; index++)
+	{
+		ABRecordRef person = CFArrayGetValueAtIndex(vCardPeople, index);
+		NSString *strRandomname = [NSString stringWithFormat:@"%d.jpg",(arc4random() % 18) + 1];
+		ABPersonSetImageData(person, (CFDataRef) (UIImageJPEGRepresentation([UIImage imageNamed:strRandomname], 1.0f)), nil);
+		ABAddressBookAddRecord(book, person, NULL);
+		ABAddressBookSave(book, nil);
+		CFRelease(person);
+		
+		cardCounter++;
+	}
+	
+	CFRelease(vCardPeople);
+	CFRelease(defaultSource);
+	
     
-    if (ABAddressBookRequestAccessWithCompletion != NULL) { // we're on iOS 6
-        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-        
-        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
-            accessGranted = granted;
-            dispatch_semaphore_signal(sema);
-        });
-        
-        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
-        dispatch_release(sema);
-    }
-    else { // we're on iOS 5 or older
-        accessGranted = YES;
-    }
-    
-    if(accessGranted)
-    {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"DummyVCard" ofType:@"vcf"];
-        NSData *myData = [NSData dataWithContentsOfFile:filePath];
-        CFDataRef vCardData = (CFDataRef)myData;
-        
-        ABAddressBookRef book = ABAddressBookCreate();
-        ABRecordRef defaultSource = ABAddressBookCopyDefaultSource(book);
-        CFArrayRef vCardPeople = ABPersonCreatePeopleInSourceWithVCardRepresentation(defaultSource, vCardData);
-        for (CFIndex index = 0; index < CFArrayGetCount(vCardPeople); index++)
-        {
-            ABRecordRef person = CFArrayGetValueAtIndex(vCardPeople, index);
-            NSString *strRandomname = [NSString stringWithFormat:@"%d.jpg",(arc4random() % 10) + 1];
-            ABPersonSetImageData(person, (CFDataRef) (UIImageJPEGRepresentation([UIImage imageNamed:strRandomname], 1.0f)), nil);
-            ABAddressBookAddRecord(book, person, NULL);
-            ABAddressBookSave(book, nil);
-            CFRelease(person);
-        }
-        
-        CFRelease(vCardPeople);
-        CFRelease(defaultSource);
-    }
-    
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"100 contacts added successfully." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%ld contacts added successfully.", (long)cardCounter] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
     [alertView release];
     
@@ -107,7 +139,7 @@
     ABAddressBookRef addressBook = ABAddressBookCreate();
     __block BOOL accessGranted = NO;
     
-    if (ABAddressBookRequestAccessWithCompletion != NULL) { // we're on iOS 6
+    if (&ABAddressBookRequestAccessWithCompletion != NULL) { // we're on iOS 6
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         
         ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
@@ -145,6 +177,11 @@
 
 - (void)dealloc {
     [lblStatus release];
+	[_contactSlider release];
+	[_contactCounterTextField release];
+	[myData release], myData = nil;
+	[_spinner release];
+	[_spinner release];
     [super dealloc];
 }
 - (void)viewDidUnload {
